@@ -1,0 +1,41 @@
+Copyright (c) 2026 Maurice
+
+All rights reserved.
+
+Permission is hereby granted to any person obtaining a copy of this project and its associated files (the “Software”) to:
+
+1. View the source code.
+2. Learn from the source code.
+3. Use small portions of the source code in their own projects (such as snippets, algorithms, or patterns).
+4. Modify and use the original assets created by Maurice for personal or commercial projects, provided they do not redistribute or resell the assets themselves.
+
+The following restrictions apply:
+
+1. **No Redistribution of the Project**
+   You may NOT redistribute, re-upload, mirror, or publish this project or any substantial portion of it, whether modified or unmodified.
+
+2. **No Resale**
+   You may NOT sell this project, any part of this project, or any derivative work that is substantially similar to this project.
+
+3. **No Cloning of the Project**
+   You may NOT create a new project that is substantially identical to this one, including but not limited to:
+   - Replacing assets while keeping the same codebase
+   - Replacing code while keeping the same assets
+   - Minor modifications intended to pass off the project as your own
+
+   Small code snippets may be reused, but copying the full project or large sections of it is strictly prohibited.
+
+4. **Third‑Party Asset Restriction**
+   This project contains one third‑party asset that Maurice is licensed to use but NOT licensed to redistribute. This is the Player asset and you need to add your own one in this code base.
+   You may NOT use, copy, extract, modify, or redistribute this asset under any circumstances.
+
+5. **No Redistribution of Assets**
+   You may NOT redistribute or resell any of Maurice’s original assets (images, sprites, models, audio, etc.) as standalone files or as part of an asset pack.
+
+6. **Derivative Works**
+   You may create derivative works for personal use, but you may NOT publish, distribute, or sell derivative works that rely heavily on this project’s structure, code, or assets.
+
+7. **Attribution**
+   If you use small portions of the code or assets in your own project, attribution is appreciated but not required.
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND. MAURICE RETAINS ALL RIGHTS NOT EXPRESSLY GRANTED IN THIS LICENSE.
