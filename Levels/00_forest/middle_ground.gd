@@ -7,60 +7,97 @@ class_name BreakableTileMap
 
 var breaking_tiles: Dictionary = {}
 
-func _ready():
+
+func _ready() -> void:
 	add_to_group("breakable_tilemaps")
 	fix_collision()
 
-func fix_collision():
-	# Forceer Godot om collision opnieuw te genereren
+
+func _exit_tree() -> void:
+	# Ruim dummy sprites op
+	for child in get_children():
+		if child is Sprite2D:
+			child.queue_free()
+
+
+func fix_collision() -> void:
 	var old = tile_set
 	tile_set = null
 	await get_tree().process_frame
-	tile_set = old
-
+	if is_inside_tree():
+		tile_set = old
 
 
 func break_tile(cell: Vector2i) -> void:
-	var source_id = get_cell_source_id(cell)
+	if !is_inside_tree():
+		return
+
+	var source_id := get_cell_source_id(cell)
 	if source_id == -1 or breaking_tiles.has(cell):
 		return
-		
-	var atlas_coords = get_cell_atlas_coords(cell)
-	var alternative_tile = get_cell_alternative_tile(cell)
+
+	# Tile data opslaan
 	breaking_tiles[cell] = {
 		"source_id": source_id,
-		"atlas_coords": atlas_coords,
-		"alternative_tile": alternative_tile
+		"atlas_coords": get_cell_atlas_coords(cell),
+		"alternative_tile": get_cell_alternative_tile(cell)
 	}
 
+	# Dummy sprite maken
 	var tile_set_source: TileSetAtlasSource = tile_set.get_source(source_id)
-	var tile_texture = tile_set_source.texture
-	var texture_region = tile_set_source.get_tile_texture_region(atlas_coords)
-
-	var dummy_sprite = Sprite2D.new()
-	dummy_sprite.texture = tile_texture
+	var dummy_sprite := Sprite2D.new()
+	dummy_sprite.texture = tile_set_source.texture
 	dummy_sprite.region_enabled = true
-	dummy_sprite.region_rect = texture_region
+	dummy_sprite.region_rect = tile_set_source.get_tile_texture_region(breaking_tiles[cell]["atlas_coords"])
 
-	var tile_world_pos = map_to_local(cell) + global_position
+	var parent := get_parent()
+	if parent == null:
+		return
+	parent.add_child(dummy_sprite)
+
+	var tile_world_pos := map_to_local(cell) + global_position
 	dummy_sprite.global_position = tile_world_pos
-	get_tree().current_scene.add_child(dummy_sprite)
 
-	var time_passed = 0.0
+	# Start het proces (async door await)
+	_break_process(cell, dummy_sprite, tile_world_pos)
+
+
+func _break_process(cell: Vector2i, dummy_sprite: Sprite2D, tile_world_pos: Vector2) -> void:
+	var time_passed := 0.0
+
+	# Shake fase
 	while time_passed < break_delay:
-		var random_offset = Vector2(
+		if !is_inside_tree():
+			return
+
+		var random_offset := Vector2(
 			randf_range(-shake_intensity, shake_intensity),
 			randf_range(-shake_intensity, shake_intensity)
 		)
 		dummy_sprite.global_position = tile_world_pos + random_offset
+
 		await get_tree().physics_frame
+		if !is_inside_tree():
+			return
+
 		time_passed += get_process_delta_time()
-	set_cell(cell, -1)
 
-	dummy_sprite.queue_free()
+	# Tile verwijderen
+	if is_inside_tree():
+		set_cell(cell, -1)
 
-	await get_tree().create_timer(respawn_delay).timeout
+	# Dummy sprite verwijderen
+	if is_instance_valid(dummy_sprite):
+		dummy_sprite.queue_free()
 
-	var data = breaking_tiles[cell]
-	set_cell(cell, data["source_id"], data["atlas_coords"], data["alternative_tile"])
-	breaking_tiles.erase(cell)
+	# Respawn timer
+	var timer := get_tree().create_timer(respawn_delay)
+	await timer.timeout
+	if !is_inside_tree():
+		return
+
+	# Tile terugzetten
+	if breaking_tiles.has(cell):
+		var data = breaking_tiles[cell]
+		set_cell(cell, data["source_id"], data["atlas_coords"], data["alternative_tile"])
+		breaking_tiles.erase(cell)
