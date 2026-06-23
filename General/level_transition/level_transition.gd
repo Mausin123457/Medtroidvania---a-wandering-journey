@@ -35,7 +35,7 @@ func _ready() -> void:
 
 
 func on_player_entered(n: Node2D) -> void:
-	SceneManager.transition_scene(target_level, target_area_name, get_offset(n), "left")
+	SceneManager.transition_scene(target_level, target_area_name, get_offset(n), get_transition_direction())
 	pass
 
 
@@ -47,7 +47,11 @@ func _on_new_scene_ready(target_name: String, offset: Vector2) -> void:
 
 
 func _on_load_scene_finished() -> void:
+	area_2d.monitoring = false
 	area_2d.body_entered.connect(on_player_entered)
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	area_2d.monitoring = true
 	pass
 
 
@@ -75,15 +79,29 @@ func get_offset(player : Node2D) -> Vector2:
 	var player_pos : Vector2 = global_position
 
 	if location == SIDE.LEFT || location == SIDE.RIGHT:
-		
+		offset.y = player_pos.y - self.global_position.y
 		if location == SIDE.LEFT:
 			offset.x = -20
 		else:
 			offset.x = 20
 	else:
+		offset.x = player_pos.x - self.global_position.x
 		if location == SIDE.TOP:
 			offset.y = -2
 		else:
 			offset.y = 48
 	return offset
-	
+
+
+
+func get_transition_direction() -> String:
+	match location:
+		SIDE.LEFT:
+			return "left"
+		SIDE.RIGHT:
+			return "right"
+		SIDE.BOTTOM:
+			return "down"
+		_:
+			return "up"
+		

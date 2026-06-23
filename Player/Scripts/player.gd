@@ -42,6 +42,9 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _ready() -> void:
+	if get_tree().get_first_node_in_group("Player") != self:
+		self.queue_free()
+	
 	initialize_states()
 	self.call_deferred("reparent", get_tree().root)
 	pass
