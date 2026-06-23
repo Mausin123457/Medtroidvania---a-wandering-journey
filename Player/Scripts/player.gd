@@ -43,6 +43,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _ready() -> void:
 	initialize_states()
+	self.call_deferred("reparent", get_tree().root)
+	pass
 
 
 func _process(_delta: float) -> void:

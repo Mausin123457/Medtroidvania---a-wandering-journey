@@ -3,7 +3,7 @@
 class_name LevelTransition extends Node2D
 
 
-enum SIDE {RIGHT, LEFT, TOP, BOTTOM}
+enum SIDE {LEFT, RIGHT, TOP, BOTTOM}
 
 
 @export_range(2, 12, 1, "or_greater") var size: int = 2:
@@ -19,7 +19,7 @@ enum SIDE {RIGHT, LEFT, TOP, BOTTOM}
 
 
 @export_file("*.tscn") var target_level: String = "" 
-@export var target_area: String = "LevelTransition"
+@export var target_area_name: String = "LevelTransition"
 
 
 @onready var area_2d: Area2D = $Area2D
@@ -28,12 +28,26 @@ enum SIDE {RIGHT, LEFT, TOP, BOTTOM}
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
-	area_2d.body_entered.connect(on_player_entered)
+	SceneManager.new_scene_ready.connect(_on_new_scene_ready)
+	SceneManager.load_scene_finished.connect(_on_load_scene_finished)
 	pass
 
 
-func on_player_entered(_n: Node2D) -> void:
-	get_tree().change_scene_to_file(target_level)
+
+func on_player_entered(n: Node2D) -> void:
+	SceneManager.transition_scene(target_level, target_area_name, get_offset(n), "left")
+	pass
+
+
+func _on_new_scene_ready(target_name: String, offset: Vector2) -> void:
+	if target_name == name:
+		var player: Node = get_tree().get_first_node_in_group("Player")
+		player.global_position = global_position + offset
+	pass
+
+
+func _on_load_scene_finished() -> void:
+	area_2d.body_entered.connect(on_player_entered)
 	pass
 
 
@@ -55,3 +69,21 @@ func apply_area_settings() -> void:
 		else:
 			area_2d.scale.y = -1
 	pass
+	
+func get_offset(player : Node2D) -> Vector2:
+	var offset : Vector2 = Vector2.ZERO
+	var player_pos : Vector2 = global_position
+
+	if location == SIDE.LEFT || location == SIDE.RIGHT:
+		
+		if location == SIDE.LEFT:
+			offset.x = -20
+		else:
+			offset.x = 20
+	else:
+		if location == SIDE.TOP:
+			offset.y = -2
+		else:
+			offset.y = 48
+	return offset
+	
