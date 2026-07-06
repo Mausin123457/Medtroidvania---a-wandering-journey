@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cp6kxnf0o5kcf" path="res://Levels/Props/Torch.tscn" id="5_751g6"]
 [ext_resource type="Texture2D" uid="uid://dbb6qj06g0n3i" path="res://Levels/Tilesets/sprites/light_stream.jpg" id="5_wbob4"]
 [ext_resource type="PackedScene" uid="uid://bhe72lylec405" path="res://Levels/Props/animated_plant.tscn" id="6_o3y6l"]
+[ext_resource type="PackedScene" uid="uid://blffvd72ovtgo" path="res://General/PlayerSpawn/player_spawn.tscn" id="8_751g6"]
 
 [sub_resource type="Gradient" id="Gradient_x3n6u"]
 offsets = PackedFloat32Array(0.016826924, 1)
@@ -210,3 +211,6 @@ rotation = 0.38543397
 scale = Vector2(0.45045176, 3.1485317)
 texture = ExtResource("5_wbob4")
 offset = Vector2(0, 256)
+
+[node name="PlayerSpawn" parent="." unique_id=467086922 instance=ExtResource("8_751g6")]
+position = Vector2(3, 906)
