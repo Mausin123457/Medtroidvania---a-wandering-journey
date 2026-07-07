@@ -1,0 +1,177 @@
+[gd_scene format=3 uid="uid://dqjit6f62w68x"]
+
+[ext_resource type="PackedScene" uid="uid://cpjadv5nutccs" path="res://General/Save_point/00_campfire.tscn" id="1_kqvsn"]
+[ext_resource type="Script" uid="uid://b46vi7i8leigy" path="res://General/Scripts/light_flicker.gd" id="2_da0w2"]
+[ext_resource type="FontFile" uid="uid://bqf32ek8mohjs" path="res://General/fonts/alagard.ttf" id="3_vjjug"]
+
+[sub_resource type="Gradient" id="Gradient_v2una"]
+offsets = PackedFloat32Array(0, 0.31009614, 0.75240386, 1)
+colors = PackedColorArray(1.1730844, 0.85810316, 0.49290752, 1, 0.9051133, 0.19083661, 0.15731311, 1, 0.3579473, 0.016046593, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0pnx1"]
+gradient = SubResource("Gradient_v2una")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_7uroq"]
+offsets = PackedFloat32Array(0, 0.24509804, 0.57843137, 0.996732)
+colors = PackedColorArray(0.96824783, 0.94602644, 0.12753293, 1, 0.9892927, 0.836566, 0.29165608, 1, 0.9892927, 0.6172112, 0.20837802, 1, 0.61960787, 0.02745098, 0.019607844, 0.09019608)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_v2una"]
+gradient = SubResource("Gradient_7uroq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tvysj"]
+particle_flag_disable_z = true
+direction = Vector3(0, -20, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 300.0
+angular_velocity_min = -200.00002
+angular_velocity_max = 199.99998
+gravity = Vector3(0, 98, 0)
+color_ramp = SubResource("GradientTexture1D_v2una")
+turbulence_enabled = true
+turbulence_influence_max = 0.25
+turbulence_initial_displacement_min = -19.999998
+turbulence_initial_displacement_max = 20.000002
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_myhdt"]
+size = Vector2(61.428596, 52.857155)
+
+[sub_resource type="Animation" id="Animation_noehu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-43.07143, 2.7247836e-06)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_58ve1"]
+resource_name = "game_saved"
+length = 3.0000000000000004
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 2.6, 3),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(-41.42857, 19.999996), Vector2(-41.429, 0), Vector2(-41.428856, 6.666666), Vector2(-41.428856, 6.666666), Vector2(-41.42857, 19.999996)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 2.6000001, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iin0q"]
+_data = {
+&"RESET": SubResource("Animation_noehu"),
+&"game_saved": SubResource("Animation_58ve1")
+}
+
+[node name="Save_point" type="Node2D" unique_id=1834387376]
+
+[node name="Save_point" parent="." unique_id=1895043421 instance=ExtResource("1_kqvsn")]
+frame_progress = 0.25050268
+
+[node name="PointLight2D2" type="PointLight2D" parent="Save_point" unique_id=1093145270]
+position = Vector2(1.5, 10.500004)
+scale = Vector2(0.59765625, 0.62890625)
+energy = 0.7
+texture = SubResource("GradientTexture2D_0pnx1")
+script = ExtResource("2_da0w2")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="Save_point" unique_id=911134393]
+position = Vector2(2, 13)
+amount = 6
+speed_scale = 0.5
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_tvysj")
+
+[node name="Area2D2" type="Area2D" parent="Save_point" unique_id=2127490470]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Save_point/Area2D2" unique_id=1829377227]
+position = Vector2(0.71428394, 5)
+scale = Vector2(0.9999995, 0.9999995)
+shape = SubResource("RectangleShape2D_myhdt")
+debug_color = Color(1, 0.99607843, 0.46666667, 0)
+
+[node name="Node2D2" type="Node2D" parent="Save_point" unique_id=2061884994]
+position = Vector2(1.4285713, -48.571423)
+
+[node name="Label" type="Label" parent="Save_point/Node2D2" unique_id=2110629308]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -43.07143
+offset_right = 42.92857
+offset_bottom = 22.999945
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.773583, 0.773583, 0.773583, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("3_vjjug")
+text = "Game Saved"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Save_point/Node2D2" unique_id=1973538062]
+libraries/ = SubResource("AnimationLibrary_iin0q")

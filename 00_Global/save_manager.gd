@@ -23,7 +23,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.is_pressed():
 		if event.keycode == KEY_Q:
 			save_game()
-		elif event.keycode == KEY_E:
+		elif event.keycode == KEY_R:
 			load_game()
 		elif event.keycode == KEY_1:
 			current_slot = 0

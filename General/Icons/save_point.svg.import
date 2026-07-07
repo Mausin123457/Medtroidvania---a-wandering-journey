@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5wqnhqdhbcps"
-path="res://.godot/imported/Campfire1.png-677240c73d3c97389e7eb3eb4628b428.ctex"
+uid="uid://o1tthb3aehja"
+path="res://.godot/imported/save_point.svg-bde030acbf7b322dd28ef764a6f3207e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://00_Global/campfire_sprites/Campfire1.png"
-dest_files=["res://.godot/imported/Campfire1.png-677240c73d3c97389e7eb3eb4628b428.ctex"]
+source_file="res://General/Icons/save_point.svg"
+dest_files=["res://.godot/imported/save_point.svg-bde030acbf7b322dd28ef764a6f3207e.ctex"]
 
 [params]
 
@@ -38,3 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

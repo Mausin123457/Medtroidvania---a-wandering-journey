@@ -30,7 +30,7 @@ var previous_state : PlayerState:
 
 
 #region /// Stats
-var hp: float = 20.0
+var hp: float = 15.0
 var max_hp: float = 20.0
 var dash: bool = false
 var wall_jump: bool = false
@@ -48,7 +48,10 @@ var original_sprite_pos: Vector2
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("action"):
+		Messages.player_interacted.emit(self)
 	change_state(current_state.handle_input(event))
+	pass
 
 
 func _ready() -> void:
@@ -57,6 +60,7 @@ func _ready() -> void:
 	
 	initialize_states()
 	self.call_deferred("reparent", get_tree().root)
+	Messages.player_healed.connect(on_player_healed)
 	pass
 
 
@@ -159,3 +163,9 @@ func get_breakable_tile_below() -> Dictionary:
 			return {"tilemap": tilemap, "cell": cell}
 
 	return {}
+
+
+func on_player_healed(amount: float) -> void:
+	hp += amount
+	print("healed: ", amount)
+	pass

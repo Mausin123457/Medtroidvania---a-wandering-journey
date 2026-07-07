@@ -2,12 +2,13 @@
 
 [ext_resource type="TileSet" uid="uid://rcg6l8w1rg0e" path="res://Levels/Tilesets/Forest&castle.tres" id="1_r3lre"]
 [ext_resource type="Script" uid="uid://c1qgpr7ndruj5" path="res://Levels/00_forest/middle_ground.gd" id="2_82eax"]
-[ext_resource type="PackedScene" uid="uid://cj1d8xaw4i7jr" path="res://Player/player.tscn" id="3_tfak7"]
+[ext_resource type="PackedScene" uid="uid://blffvd72ovtgo" path="res://General/PlayerSpawn/player_spawn.tscn" id="3_gifbt"]
 [ext_resource type="Script" uid="uid://djt425qri8v8e" path="res://General/Scripts/Level_bounds.gd" id="4_fa1uv"]
 [ext_resource type="PackedScene" uid="uid://d3r7tp3msdhg6" path="res://General/level_transition/level_transition.tscn" id="5_gifbt"]
 [ext_resource type="Texture2D" uid="uid://dbb6qj06g0n3i" path="res://Levels/Tilesets/sprites/light_stream.jpg" id="6_82eax"]
 [ext_resource type="PackedScene" uid="uid://cp6kxnf0o5kcf" path="res://Levels/Props/Torch.tscn" id="6_fa1uv"]
 [ext_resource type="PackedScene" uid="uid://bhe72lylec405" path="res://Levels/Props/animated_plant.tscn" id="7_gifbt"]
+[ext_resource type="PackedScene" uid="uid://cpjadv5nutccs" path="res://General/Save_point/00_campfire.tscn" id="9_e0t6d"]
 
 [sub_resource type="Gradient" id="Gradient_g21jb"]
 offsets = PackedFloat32Array(0.016826924, 1)
@@ -139,9 +140,8 @@ position = Vector2(-422, -231)
 tile_map_data = PackedByteArray("AAA0AAMAAAAdAAAAAAA0AAQAAAAdAAEAAAA1AAMAAAAeAAAAAAA1AAQAAAAeAAEAAAAbAAYAAAAYAAEAABApAAYAAAAYAAEAABA=")
 tile_set = ExtResource("1_r3lre")
 
-[node name="Player" parent="." unique_id=1128227657 instance=ExtResource("3_tfak7")]
-unique_name_in_owner = true
-position = Vector2(-55, -18)
+[node name="PlayerSpawn" parent="." unique_id=467086922 instance=ExtResource("3_gifbt")]
+position = Vector2(-50, -16)
 
 [node name="LevelBounds" type="Node2D" parent="." unique_id=14480635]
 z_index = 256
@@ -221,3 +221,6 @@ rotation = 0.18248571
 scale = Vector2(0.82630867, 2.1709502)
 texture = ExtResource("6_82eax")
 offset = Vector2(0, 256)
+
+[node name="Campfire" parent="." unique_id=1895043421 instance=ExtResource("9_e0t6d")]
+position = Vector2(19, -8)

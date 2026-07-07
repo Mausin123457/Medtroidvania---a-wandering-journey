@@ -19,6 +19,7 @@ config/icon="uid://7qhm0md225jv"
 
 SceneManager="*uid://b46h2his485xs"
 SaveManager="*uid://yeipq8ahwshg"
+Messages="*uid://bjxl4h0r4sfs0"
 
 [display]
 

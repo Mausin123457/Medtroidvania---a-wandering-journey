@@ -1,0 +1,216 @@
+[gd_scene format=3 uid="uid://cpjadv5nutccs"]
+
+[ext_resource type="Texture2D" uid="uid://5wqnhqdhbcps" path="res://General/Save_point/Campfire1.png" id="1_noehu"]
+[ext_resource type="Texture2D" uid="uid://8x1s76fsomik" path="res://General/Save_point/Campfire2.png" id="2_58ve1"]
+[ext_resource type="Texture2D" uid="uid://dh7d87l3ho0kh" path="res://General/Save_point/Campfire3.png" id="3_gmdxr"]
+[ext_resource type="Texture2D" uid="uid://bwesg3igigx34" path="res://General/Save_point/Campfire4.png" id="4_d4gu8"]
+[ext_resource type="Texture2D" uid="uid://doggguxm5p4n0" path="res://General/Save_point/Campfire5.png" id="5_ahioc"]
+[ext_resource type="Script" uid="uid://b46vi7i8leigy" path="res://General/Scripts/light_flicker.gd" id="6_4nkop"]
+[ext_resource type="Script" uid="uid://gu1lf3f5sqkl" path="res://General/Save_point/SavePoint.gd" id="6_58ve1"]
+[ext_resource type="FontFile" uid="uid://bqf32ek8mohjs" path="res://General/fonts/alagard.ttf" id="7_j54b8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b7hpn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_noehu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_58ve1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gmdxr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_d4gu8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ahioc")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 9.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_58ve1"]
+offsets = PackedFloat32Array(0, 0.31009614, 0.75240386, 1)
+colors = PackedColorArray(1.1730844, 0.85810316, 0.49290752, 1, 0.9051133, 0.19083661, 0.15731311, 1, 0.3579473, 0.016046593, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_o52ka"]
+gradient = SubResource("Gradient_58ve1")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_aod5l"]
+offsets = PackedFloat32Array(0, 0.24509804, 0.57843137, 0.996732)
+colors = PackedColorArray(0.96824783, 0.94602644, 0.12753293, 1, 0.9892927, 0.836566, 0.29165608, 1, 0.9892927, 0.6172112, 0.20837802, 1, 0.61960787, 0.02745098, 0.019607844, 0.09019608)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gmdxr"]
+gradient = SubResource("Gradient_aod5l")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hu6jn"]
+particle_flag_disable_z = true
+direction = Vector3(0, -20, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 300.0
+angular_velocity_min = -200.00002
+angular_velocity_max = 199.99998
+gravity = Vector3(0, 98, 0)
+color_ramp = SubResource("GradientTexture1D_gmdxr")
+turbulence_enabled = true
+turbulence_influence_max = 0.25
+turbulence_initial_displacement_min = -19.999998
+turbulence_initial_displacement_max = 20.000002
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b7hpn"]
+size = Vector2(42.000023, 33.42858)
+
+[sub_resource type="Animation" id="Animation_noehu"]
+length = 3.0000000000000004
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-43.07143, 2.7247836e-06)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_58ve1"]
+resource_name = "game_saved"
+length = 3.0000000000000004
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 2.6, 3),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(-41.429, 20), Vector2(-41.429, -20), Vector2(-41.429, -15), Vector2(-41.429, -15), Vector2(-41.42857, 19.999996)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 2.6000001, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gmdxr"]
+_data = {
+&"RESET": SubResource("Animation_noehu"),
+&"game_saved": SubResource("Animation_58ve1")
+}
+
+[node name="Save_point" type="Node2D" unique_id=739795345]
+script = ExtResource("6_58ve1")
+
+[node name="Campfire" type="AnimatedSprite2D" parent="." unique_id=890667694]
+position = Vector2(0, -21.999998)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_b7hpn")
+autoplay = "default"
+frame_progress = 0.9087416
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=588278813]
+position = Vector2(1, -12.999998)
+scale = Vector2(0.59765625, 0.62890625)
+energy = 0.7
+texture = SubResource("GradientTexture2D_o52ka")
+script = ExtResource("6_4nkop")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1182037631]
+position = Vector2(1, -13)
+amount = 6
+speed_scale = 0.5
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_hu6jn")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1032693212]
+collision_layer = 0
+collision_mask = 16
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1722936539]
+position = Vector2(1, -16.285717)
+scale = Vector2(0.9999995, 0.9999995)
+shape = SubResource("RectangleShape2D_b7hpn")
+debug_color = Color(1, 0.99607843, 0.46666667, 0)
+
+[node name="Node2D" type="Node2D" parent="." unique_id=724704345]
+position = Vector2(1.4285713, -48.571423)
+
+[node name="Label" type="Label" parent="Node2D" unique_id=1996737639]
+visible = false
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -43.07143
+offset_right = 42.92857
+offset_bottom = 22.999949
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.773583, 0.773583, 0.773583, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("7_j54b8")
+text = "Game Saved"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D" unique_id=2018597983]
+libraries/ = SubResource("AnimationLibrary_gmdxr")
