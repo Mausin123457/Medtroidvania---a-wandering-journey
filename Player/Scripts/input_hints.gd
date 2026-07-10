@@ -28,6 +28,15 @@ const HINT_MAP: Dictionary = {
 		"up" : 4,
 		"parry" : 24,
 		"map" : 21,
+	},
+	"nintendo" : {
+		"interact" : 7,
+		"attack" : 8,
+		"jump" : 18,
+		"dash" : 5,
+		"up" : 4,
+		"parry" : 24,
+		"map" : 21,
 	}
 }
 
@@ -55,12 +64,10 @@ func get_controller_type(device_id: int) -> void:
 	
 	if "xbox" in n:
 		controller_type = "xbox"
-	elif "playstation" in n or "ps" in n or "dualsense" in n:
-		controller_type = "playstation"
 	elif "nintendo" in n or "switch" in n:
-		controller_type = "xbox"
+		controller_type = "nintendo"
 	else:
-		controller_type = "unknown"
+		controller_type = "playstation"
 	
 	set_process_input(false)
 	

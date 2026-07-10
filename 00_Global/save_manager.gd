@@ -19,23 +19,10 @@ func _ready() -> void:
 	pass
 
 
-func _unhandled_key_input(event: InputEvent) -> void:
-	if event is InputEventKey and event.is_pressed():
-		if event.keycode == KEY_Q:
-			save_game()
-		elif event.keycode == KEY_R:
-			load_game(current_slot)
-		elif event.keycode == KEY_1:
-			current_slot = 0
-		elif event.keycode == KEY_2:
-			current_slot = 1
-		elif event.keycode == KEY_3:
-			current_slot = 2
-	pass
-
-
 func create_new_game_save(slot: int) -> void:
 	current_slot = slot
+	discovered_areas.clear()
+	persistant_data.clear()
 	var new_game_scene : String = "uid://cvgsrlj7isd00"
 	discovered_areas.append(new_game_scene)
 	
