@@ -24,7 +24,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		if event.keycode == KEY_Q:
 			save_game()
 		elif event.keycode == KEY_R:
-			load_game()
+			load_game(current_slot)
 		elif event.keycode == KEY_1:
 			current_slot = 0
 		elif event.keycode == KEY_2:
@@ -34,7 +34,8 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	pass
 
 
-func create_new_game_save() -> void:
+func create_new_game_save(slot: int) -> void:
+	current_slot = slot
 	var new_game_scene : String = "uid://cvgsrlj7isd00"
 	discovered_areas.append(new_game_scene)
 	
@@ -50,8 +51,12 @@ func create_new_game_save() -> void:
 		"discovered_areas" : discovered_areas,
 		"persistant_data" : persistant_data,
 	}
-	var save_file = FileAccess.open(get_file_name(), FileAccess.WRITE)
+	var save_file = FileAccess.open(get_file_name(current_slot), FileAccess.WRITE)
 	save_file.store_line(JSON.stringify(save_data))
+	
+	save_file.close()
+	
+	load_game(slot)
 	pass
 
 
@@ -69,16 +74,18 @@ func save_game() -> void:
 		"discovered_areas" : discovered_areas,
 		"persistant_data" : persistant_data,
 	}
-	var save_file = FileAccess.open(get_file_name(), FileAccess.WRITE)
+	var save_file = FileAccess.open(get_file_name(current_slot), FileAccess.WRITE)
 	save_file.store_line(JSON.stringify(save_data))
 	pass
 
 
-func load_game() -> void:
-	if !FileAccess.file_exists(get_file_name()):
+func load_game(slot: int) -> void:
+	if !FileAccess.file_exists(get_file_name(current_slot)):
 		return
-		
-	var save_file = FileAccess.open(get_file_name(), FileAccess.READ)
+	
+	current_slot = slot
+	
+	var save_file = FileAccess.open(get_file_name(current_slot), FileAccess.READ)
 	
 	save_data = JSON.parse_string(save_file.get_line())
 	
@@ -111,5 +118,9 @@ func setup_player() -> void:
 	pass
 
 
-func get_file_name() -> String:
-	return "user://" + SLOTS[current_slot] + ".sav"
+func get_file_name(slot: int) -> String:
+	return "user://" + SLOTS[slot] + ".sav"
+
+
+func save_file_exists(slot : int) -> bool:
+	return FileAccess.file_exists(get_file_name(slot))

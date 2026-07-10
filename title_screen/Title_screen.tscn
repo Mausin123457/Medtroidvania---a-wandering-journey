@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://b1skfx7p5ykib"]
 
 [ext_resource type="TileSet" uid="uid://rcg6l8w1rg0e" path="res://Levels/Tilesets/Forest&castle.tres" id="1_clxy8"]
+[ext_resource type="Script" uid="uid://bi48wbas6a2nr" path="res://title_screen/title_screen.gd" id="1_pnjtn"]
 [ext_resource type="PackedScene" uid="uid://bhe72lylec405" path="res://Levels/Props/animated_plant.tscn" id="2_lilbj"]
 [ext_resource type="PackedScene" uid="uid://cp6kxnf0o5kcf" path="res://Levels/Props/Torch.tscn" id="3_pnjtn"]
 [ext_resource type="Texture2D" uid="uid://dbb6qj06g0n3i" path="res://Levels/Tilesets/sprites/light_stream.jpg" id="4_n7xko"]
@@ -23,6 +24,7 @@ light_mode = 1
 
 [node name="TitleScreen" type="CanvasLayer" unique_id=9630580]
 layer = 5
+script = ExtResource("1_pnjtn")
 
 [node name="Control" type="Control" parent="." unique_id=178945008]
 layout_mode = 3
@@ -226,8 +228,138 @@ texture = ExtResource("4_n7xko")
 offset = Vector2(0, 256)
 
 [node name="Sprite2D6" type="Sprite2D" parent="Control/TileMapContainer" unique_id=937978071]
-position = Vector2(1055, 258)
+position = Vector2(1001, 258)
 scale = Vector2(2, 2)
 texture = ExtResource("5_lilbj")
 hframes = 32
 vframes = 7
+
+[node name="MainMenu" type="VBoxContainer" parent="Control" unique_id=738686891]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -69.0
+offset_top = -138.0
+offset_right = 70.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="logo" type="Control" parent="Control/MainMenu" unique_id=517636392]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/MainMenu/logo" unique_id=770351846]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.5
+offset_top = -7.0
+offset_right = 95.5
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 22
+text = "A Knight's Journey"
+
+[node name="NewGameButton" type="Button" parent="Control/MainMenu" unique_id=1939289691]
+unique_name_in_owner = true
+layout_mode = 2
+text = "New Game"
+
+[node name="LoadGameButton" type="Button" parent="Control/MainMenu" unique_id=603676153]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Load Game"
+
+[node name="NewGameMenu" type="VBoxContainer" parent="Control" unique_id=35560906]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.0
+offset_top = -28.0
+offset_right = 107.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="Label" type="Label" parent="Control/NewGameMenu" unique_id=2089241700]
+modulate = Color(1, 0.99270576, 0.6157466, 1)
+layout_mode = 2
+text = "Start a new game..."
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="Control/NewGameMenu" unique_id=164591594]
+layout_mode = 2
+
+[node name="NewSlot1" type="Button" parent="Control/NewGameMenu" unique_id=29844871]
+unique_name_in_owner = true
+layout_mode = 2
+text = "New Game 01"
+
+[node name="NewSlot2" type="Button" parent="Control/NewGameMenu" unique_id=2103673150]
+unique_name_in_owner = true
+layout_mode = 2
+text = "New Game 02"
+
+[node name="NewSlot3" type="Button" parent="Control/NewGameMenu" unique_id=806553480]
+unique_name_in_owner = true
+layout_mode = 2
+text = "New Game 03"
+
+[node name="LoadGameMenu" type="VBoxContainer" parent="Control" unique_id=1383793805]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.0
+offset_top = -28.0
+offset_right = 107.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="Label" type="Label" parent="Control/LoadGameMenu" unique_id=891593857]
+modulate = Color(1, 0.99270576, 0.6157466, 1)
+layout_mode = 2
+text = "Load a saved game..."
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="Control/LoadGameMenu" unique_id=620629576]
+layout_mode = 2
+
+[node name="LoadSlot1" type="Button" parent="Control/LoadGameMenu" unique_id=1100471537]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Load Game 01"
+
+[node name="LoadSlot2" type="Button" parent="Control/LoadGameMenu" unique_id=1314755025]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Load Game 02"
+
+[node name="LoadSlot3" type="Button" parent="Control/LoadGameMenu" unique_id=1117953592]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Load Game 03"
