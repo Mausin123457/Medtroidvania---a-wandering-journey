@@ -92,3 +92,9 @@ CHAPTER 5: Back after a little break
 ============================================================================
 
 6-7-2026: I took quite a big "break" from any progress in this game, and that is because I was working on a different, way smaller game. A game that I and a friend of mine made together for a game jam. It is not perfect by any means at the moment, but maybe we will come back to update the game further, who knows. The game is called "Chip Chain". I will put a link to the game below this, if anyone wants to check it out :). Anyway I am back and I will be putting my focus back on this game again, first thing I will be working on after coming back is a save and load system! I will keep everything updated in here for those interested.
+
+https://mausin123457.itch.io/chip-chain
+
+The AI in the game is pretty easy to beat, since I didn't have a lot of time to perfect it, but it works.
+
+11-7-2026: I have been working on some save and load systems and the very basics of a title screen. I also have controller support now. I have made input hints, so everytime you can interact with something you will see the correct button above the players head, depending on which controller type you are using. The only "problem" at the moment, is when you start of playing with keyboard and then switch mid way to playstation for example, your input hints will be for keyboard the entire time, unless you restart the game. I might want to do something about that later on. For now I will move on to the player HUD and health system. I am thinking about making a similair system to that of hollow knight, with 5 hearts and the possibility of gaining more in the game.
