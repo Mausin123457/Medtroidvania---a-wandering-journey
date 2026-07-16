@@ -1,0 +1,178 @@
+[gd_scene format=3 uid="uid://cq5otw5foxyq0"]
+
+[ext_resource type="Script" uid="uid://d0x6dp76ce4cr" path="res://pause_menu/scripts/pause_menu.gd" id="1_671oy"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=1069872174]
+process_mode = 3
+layer = 3
+script = ExtResource("1_671oy")
+
+[node name="Control" type="Control" parent="." unique_id=586930302]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1582711645]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14901961, 0.14901961, 0.14901961, 0.4745098)
+
+[node name="Label" type="Label" parent="Control" unique_id=1235400653]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 8.0
+offset_right = 274.0
+offset_bottom = 23.0
+text = "PAUSED"
+
+[node name="PauseScreen" type="Control" parent="Control" unique_id=1590866801]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Map" type="Control" parent="Control/PauseScreen" unique_id=137642210]
+anchors_preset = 0
+offset_left = 135.0
+offset_top = 28.0
+offset_right = 436.0
+offset_bottom = 185.0
+
+[node name="ColorRect" type="ColorRect" parent="Control/PauseScreen/Map" unique_id=2021879375]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.22745098, 0.22745098, 0.22745098, 1)
+
+[node name="Label" type="Label" parent="Control/PauseScreen" unique_id=374693163]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 7.0
+offset_right = 69.0
+offset_bottom = 22.0
+text = "Abilities"
+
+[node name="Label2" type="Label" parent="Control/PauseScreen" unique_id=195448440]
+layout_mode = 0
+offset_left = 134.0
+offset_top = 6.0
+offset_right = 174.0
+offset_bottom = 21.0
+text = "Map"
+
+[node name="MenuButton" type="Button" parent="Control/PauseScreen" unique_id=216006823]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 426.0
+offset_top = 209.0
+offset_right = 475.0
+offset_bottom = 232.0
+text = "Menu"
+
+[node name="System" type="Control" parent="Control" unique_id=1751025948]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/System" unique_id=1561847693]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -130.0
+offset_top = 31.0
+offset_right = 130.0
+offset_bottom = 195.0
+grow_horizontal = 2
+theme_override_constants/separation = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/System/VBoxContainer" unique_id=1867790840]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/System/VBoxContainer/HBoxContainer" unique_id=993293383]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="ReturnButton" type="Button" parent="Control/System/VBoxContainer/HBoxContainer" unique_id=1295259711]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Return"
+
+[node name="Label2" type="Label" parent="Control/System/VBoxContainer/HBoxContainer" unique_id=2082813631]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="QuitToTitleButton" type="Button" parent="Control/System/VBoxContainer/HBoxContainer" unique_id=43883058]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Quit To Title"
+
+[node name="Label" type="Label" parent="Control/System/VBoxContainer" unique_id=1318154774]
+layout_mode = 2
+text = "Audio Levels"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/System/VBoxContainer" unique_id=1453572511]
+layout_mode = 2
+
+[node name="MusicLabel" type="Label" parent="Control/System/VBoxContainer/HBoxContainer2" unique_id=537646710]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="Control/System/VBoxContainer/HBoxContainer2" unique_id=848263424]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.05
+value = 0.5
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/System/VBoxContainer" unique_id=450781660]
+layout_mode = 2
+
+[node name="SFX" type="Label" parent="Control/System/VBoxContainer/HBoxContainer3" unique_id=1624044237]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "SFX"
+
+[node name="SFXSlider" type="HSlider" parent="Control/System/VBoxContainer/HBoxContainer3" unique_id=1857108453]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.05
+value = 0.5
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Control/System/VBoxContainer" unique_id=2125538771]
+layout_mode = 2
+
+[node name="UI" type="Label" parent="Control/System/VBoxContainer/HBoxContainer4" unique_id=1314341740]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "UI"
+
+[node name="UISlider" type="HSlider" parent="Control/System/VBoxContainer/HBoxContainer4" unique_id=1100785543]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.05
+value = 0.5

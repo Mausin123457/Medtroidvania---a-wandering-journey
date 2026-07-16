@@ -16,10 +16,13 @@ extends CanvasLayer
 @onready var load_slot_1: Button = %LoadSlot1
 @onready var load_slot_2: Button = %LoadSlot2
 @onready var load_slot_3: Button = %LoadSlot3
+@onready var back_button: Button = %BackButton
+
 
 
 func _ready() -> void:
 	PlayerHud.visible = false
+	back_button.visible = false
 	
 	new_game_button.pressed.connect(show_new_game_menu)
 	load_game_button.pressed.connect(show_load_game_menu)
@@ -48,6 +51,7 @@ func show_main_menu() -> void:
 	main_menu.visible = true
 	new_game_menu.visible = false
 	load_game_menu.visible = false
+	back_button.visible = false
 	new_game_button.grab_focus()
 	pass
 
@@ -56,8 +60,11 @@ func show_new_game_menu() -> void:
 	main_menu.visible = false
 	new_game_menu.visible = true
 	load_game_menu.visible = false
+	back_button.visible = true
 	
 	new_slot_1.grab_focus()
+	
+	back_button.pressed.connect(show_main_menu)
 	
 	if SaveManager.save_file_exists(0):
 		new_slot_1.text = "Replace slot 01"
@@ -76,8 +83,11 @@ func show_load_game_menu() -> void:
 	main_menu.visible = false
 	new_game_menu.visible = false
 	load_game_menu.visible = true
+	back_button.visible = true
 	
 	load_slot_1.grab_focus()
+	
+	back_button.pressed.connect(show_main_menu)
 	
 	load_slot_1.disabled = not SaveManager.save_file_exists(0)
 	

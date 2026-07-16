@@ -70,4 +70,5 @@ mouse_filter = 2
 position = Vector2(53, 18)
 sprite_frames = SubResource("SpriteFrames_b7hpn")
 autoplay = "default"
-frame_progress = 0.649464
+frame = 5
+frame_progress = 0.40957046
