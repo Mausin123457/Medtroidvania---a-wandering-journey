@@ -8,8 +8,12 @@ custom_maximum_size = Vector2(51, 51)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 12.0
-offset_bottom = 6.0
+offset_bottom = 7.0
 script = ExtResource("1_j1ovi")
+entrances_top = null
+entrances_right = null
+entrances_bottom = null
+entrances_left = null
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=992093685]
 custom_minimum_size = Vector2(1, 1)
@@ -53,10 +57,11 @@ offset_top = 2.0
 offset_right = 84.0
 offset_bottom = 17.0
 scale = Vector2(0.1, 0.1)
-text = "Level name"
+text = "Text"
 
 [node name="TransitionBlocks" type="Control" parent="." unique_id=923524441]
 unique_name_in_owner = true
+modulate = Color(0, 0, 0, 1)
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0

@@ -54,6 +54,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.22745098, 0.22745098, 0.22745098, 1)
@@ -61,6 +63,106 @@ color = Color(0.22745098, 0.22745098, 0.22745098, 1)
 [node name="MapNode" parent="Control/PauseScreen/Map" unique_id=299082830 instance=ExtResource("2_m0lvv")]
 modulate = Color(0.49411765, 0.8509804, 0.34117648, 1)
 layout_mode = 0
+offset_left = 28.0
+offset_top = 23.0
+offset_right = 79.0
+offset_bottom = 45.0
+linked_scene = "uid://cvgsrlj7isd00"
+entrances_top = Array[float]([])
+entrances_right = Array[float]([17.0, 5.8])
+entrances_bottom = Array[float]([])
+entrances_left = Array[float]([2.0])
+
+[node name="MapNode2" parent="Control/PauseScreen/Map" unique_id=996421134 instance=ExtResource("2_m0lvv")]
+modulate = Color(0.49411765, 0.8509804, 0.34117648, 1)
+layout_mode = 0
+offset_left = 80.0
+offset_top = 38.0
+offset_right = 115.0
+offset_bottom = 59.0
+linked_scene = "uid://c0kgtnhwnmy3q"
+entrances_top = Array[float]([16.675])
+entrances_right = Array[float]([2.0, 16.0])
+entrances_bottom = Array[float]([])
+entrances_left = Array[float]([2.0, 16.0])
+
+[node name="MapNode5" parent="Control/PauseScreen/Map" unique_id=5217838 instance=ExtResource("2_m0lvv")]
+modulate = Color(0.49411765, 0.8509804, 0.34117648, 1)
+layout_mode = 0
+offset_left = 116.0
+offset_top = 13.0
+offset_right = 149.0
+offset_bottom = 45.0
+linked_scene = "uid://dcqjqeuf715td"
+entrances_top = Array[float]([])
+entrances_right = Array[float]([4.225])
+entrances_bottom = Array[float]([2.0])
+entrances_left = Array[float]([27.0])
+
+[node name="MapNode6" parent="Control/PauseScreen/Map" unique_id=1310635567 instance=ExtResource("2_m0lvv")]
+modulate = Color(0.49411765, 0.8509804, 0.34117648, 1)
+layout_mode = 0
+offset_left = 150.0
+offset_top = 14.0
+offset_right = 167.0
+offset_bottom = 24.0
+linked_scene = "uid://bitkok0q15as7"
+entrances_top = Array[float]([])
+entrances_right = Array[float]([])
+entrances_bottom = Array[float]([])
+entrances_left = Array[float]([3.275])
+
+[node name="MapNode7" parent="Control/PauseScreen/Map" unique_id=1879460530 instance=ExtResource("2_m0lvv")]
+modulate = Color(0.49411765, 0.8509804, 0.34117648, 1)
+layout_mode = 0
+offset_left = 116.0
+offset_top = 50.0
+offset_right = 167.0
+offset_bottom = 59.0
+linked_scene = "uid://cyw2lth5qf3rf"
+entrances_top = Array[float]([])
+entrances_right = Array[float]([3.3000002])
+entrances_bottom = Array[float]([])
+entrances_left = Array[float]([4.0])
+
+[node name="MapNode8" parent="Control/PauseScreen/Map" unique_id=1585687997 instance=ExtResource("2_m0lvv")]
+modulate = Color(0.49411765, 0.8509804, 0.34117648, 1)
+layout_mode = 0
+offset_left = 168.0
+offset_top = 40.0
+offset_right = 198.0
+offset_bottom = 59.0
+linked_scene = "uid://ba1u754nbgoqc"
+entrances_top = Array[float]([])
+entrances_right = Array[float]([12.7])
+entrances_bottom = Array[float]([])
+entrances_left = Array[float]([13.0])
+
+[node name="MapNode3" parent="Control/PauseScreen/Map" unique_id=2053372967 instance=ExtResource("2_m0lvv")]
+modulate = Color(0.49411765, 0.8509804, 0.34117648, 1)
+layout_mode = 0
+offset_left = 28.0
+offset_top = 47.0
+offset_right = 79.0
+offset_bottom = 63.0
+linked_scene = "uid://cwpibjs3r6aaw"
+entrances_top = Array[float]([])
+entrances_right = Array[float]([6.9750004])
+entrances_bottom = Array[float]([44.375])
+entrances_left = Array[float]([11.0])
+
+[node name="MapNode4" parent="Control/PauseScreen/Map" unique_id=549990551 instance=ExtResource("2_m0lvv")]
+modulate = Color(0.49411765, 0.8509804, 0.34117648, 1)
+layout_mode = 0
+offset_left = -8.0
+offset_top = 49.0
+offset_right = 27.0
+offset_bottom = 63.0
+linked_scene = "uid://bhwip51p37bty"
+entrances_top = Array[float]([])
+entrances_right = Array[float]([9.0])
+entrances_bottom = Array[float]([])
+entrances_left = Array[float]([])
 
 [node name="Label" type="Label" parent="Control/PauseScreen" unique_id=374693163]
 layout_mode = 0
