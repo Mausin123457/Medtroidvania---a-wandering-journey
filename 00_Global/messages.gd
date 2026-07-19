@@ -15,3 +15,6 @@ signal input_hint_changed(hint: String)
 
 @warning_ignore("unused_signal")
 signal controller_changed(device_id: int)
+
+@warning_ignore("unused_signal")
+signal back_to_title()

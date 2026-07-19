@@ -63,6 +63,7 @@ func show_system_menu() -> void:
 
 func quit_to_title() -> void:
 	get_tree().paused = false
+	Messages.back_to_title.emit()
 	queue_free()
 	SceneManager.transition_scene("res://title_screen/Title_screen.tscn", "", Vector2.ZERO, "up")
 	pass

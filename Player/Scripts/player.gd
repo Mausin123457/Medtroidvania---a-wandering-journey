@@ -84,6 +84,7 @@ func _ready() -> void:
 	self.call_deferred("reparent", get_tree().root)
 	PlayerHud.visible = true
 	Messages.player_healed.connect(on_player_healed)
+	Messages.back_to_title.connect(queue_free)
 	pass
 
 

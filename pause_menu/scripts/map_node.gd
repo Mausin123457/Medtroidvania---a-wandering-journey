@@ -28,7 +28,8 @@ func _ready() -> void:
 		#create and display transition blocks
 		if not SaveManager.is_area_discovered(linked_scene):
 			visible = false
-		
+		if SceneManager.current_scene_uid == linked_scene:
+			display_player()
 	pass 
 
 
@@ -152,3 +153,13 @@ func add_block() -> ColorRect:
 	block.custom_minimum_size.y = 1
 	
 	return block
+
+func display_player() -> void:
+	var player: Player = get_tree().get_first_node_in_group("Player")
+	var i: Control = %PlayerIndicator
+	var pos: Vector2 = position
+	pos += ((player.global_position - indicator_offset) / SCALE_FACTOR)
+	var clamp: Vector2 = Vector2(4, 4)
+	pos = pos.clamp(position + clamp, position + size - clamp)
+	i.position = pos
+	pass
